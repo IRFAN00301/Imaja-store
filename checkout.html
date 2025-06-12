@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.7"/>
+  <title>Checkout - Imaja Collections</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fefefe;
+      padding: 30px;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: black;
+      color: white;
+      padding: 12px;
+      border: none;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>  <form id="checkoutForm">
+    <h2>Checkout</h2><input type="text" name="Name" placeholder="Name" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+<input type="email" name="Email" placeholder="Email address" required>
+<textarea name="Address" placeholder="Shipping Address" required></textarea>
+<select name="Payment Method" required>
+  <option value="">Select Payment Method</option>
+  <option value="debit/credit card">Credit/Debit Card</option>
+  <option value="Cash on Delivery">Cash on Delivery</option>
+  <option value="Upi">UPI</option>
+</select>
+
+<input type="hidden" name="Order ID" id="order-id-field">
+<textarea name="Cart Items" id="cart-data" hidden></textarea>
+<textarea name="Total Amount" id="total-data" hidden></textarea>
+<textarea name="Sizes" id="size-data" hidden></textarea>
+
+<button type="submit">Place Order</button>
+
+  </form>  <!-- ✅ EmailJS -->  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>  <script>
+    emailjs.init("987609c2048d9215bda62a0a5c906789"); // Updated Public Key
+  </script>  <script>
+    const form = document.getElementById("checkoutForm");
+
+    // ✅ Set cart & order data
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartSummary = cart.map(item => `${item.name} x${item.quantity} (Rs. ${item.price})`).join("\n");
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const sizes = cart.map(item => `${item.name}: ${item.size}`).join("\n");
+    const orderId = 'IMJ-' + Date.now();
+
+    document.getElementById("cart-data").value = cartSummary;
+    document.getElementById("total-data").value = `Rs. ${total}`;
+    document.getElementById("size-data").value = sizes;
+    document.getElementById("order-id-field").value = orderId;
+
+    // ✅ On form submit
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      // Submit to Formspree
+      fetch("https://formspree.io/f/meokovyn", {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          // ✅ Send Email with EmailJS
+          emailjs.sendForm("service_e20mnmp", "template_m76nvlo", form)
+            .then(() => {
+              window.location.href = "thankyou.html"; // Redirect
+            })
+            .catch(error => {
+              console.error("EmailJS Error:", error);
+              window.location.href = "thankyou.html";
+            });
+        } else {
+          alert("Form submission failed. Try again.");
+        }
+      }).catch(error => {
+        alert("Something went wrong!");
+        console.error(error);
+      });
+    });
+  </script></body>
+</html>

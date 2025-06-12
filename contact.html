@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Imaja Collections</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+    .contact-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+    .contact-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+      margin: 10px;
+    }
+    .contact-info h2 {
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .contact-info p, .contact-info a {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.7;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      color: black;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    form button {
+      background: black;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #333;
+    }
+    @media screen and (max-width: 768px) {
+      .contact-box {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-container">
+    <h1>Contact Imaja Collections</h1>
+
+    <div class="contact-box">
+      <!-- Contact Info Section -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p><strong>Email:</strong> <a href="mailto:imajacollections@gmail.com">imajacollections@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919391707738">+91 9391707738</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/imaja_collections?igsh=djMzMXV5eGhxamVh" target="_blank">@imajacollections</a></p>
+      </div>
+
+      <!-- Contact Form Section -->
+      <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form action="https://formspree.io/f/meokovyn" method="POST">
+          <input type="text" name="name" placeholder="Your Full Name" required />
+          <input type="email" name="email" placeholder="Your Email Address" required />
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track Order - Imaja Collections</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fefefe;
+      padding: 40px;
+      text-align: center;
+    }
+    .track-box {
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+    input {
+      width: 80%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    button {
+      padding: 12px 25px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #333;
+    }
+    .status {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+  <div class="track-box">
+    <h2>Track Your Order</h2>
+    <input type="text" id="orderId" placeholder="Enter your Order ID" />
+    <button onclick="trackOrder()">Check Status</button>
+    <div class="status" id="orderStatus"></div>
+  </div>
+
+  <script>
+    function trackOrder() {
+      const orderId = document.getElementById("orderId").value.trim();
+      const statusBox = document.getElementById("orderStatus");
+
+      if (!orderId) {
+        statusBox.textContent = "Please enter a valid Order ID.";
+        statusBox.style.color = "red";
+        return;
+      }
+
+      // Dummy tracking system — real system will check from backend/database
+      statusBox.textContent = "Order Status: 📦 Shipped (Tracking coming soon)";
+      statusBox.style.color = "#2ecc71";
+    }
+  </script>
+</body>
+</html>

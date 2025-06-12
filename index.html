@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no"/>
+  <title>Imaja Collections - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background: #fdfdfd;
+      color: #222;
+    }
+    header {
+      background-color: #e0dfdc;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #333;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #666;
+      font-style: italic;
+    }
+    .logo {
+      width: 60px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .menu-icon {
+      font-size: 30px;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+    }
+
+    nav.side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    }
+
+    nav.side-menu a {
+      padding: 10px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #000;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    nav.side-menu .section-title {
+      padding: 15px 30px 5px;
+      font-size: 12px;
+      color: gray;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f2f2f2;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    @media (min-width: 769px) {
+      ..menu-icon {
+  display: block !important;
+  z-index: 1001;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="images/logo.png" alt="Imaja Collections Logo" class="logo"/>
+    <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+    <h1>Imaja Collections</h1>
+    <p>"Elegance in Every Thread — A Touch of Islamic Heritage"</p>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <div class="close-btn" onclick="closeMenu()">&times;</div>
+
+    <div class="section-title">SHOP PRODUCT</div>
+    <a href="mens.html">menclothing</a>
+    <a href="womens.html"> womenclothing</a>
+    <a href="kids.html"> kidsclothing</a>
+    
+  
+    <div class="section-title">AFTER SALES</div>
+    <a href="contact.html">Support</a>
+    <a href="return.html">cancelation/returns</a>
+    <a href="refund.html">refund</a>
+    <a href="#"></a>
+
+    <div class="section-title">OTHER LINKS</div>
+    <a href="shipping.html">Shipping Policy</a>
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <main>
+    <h2>Welcome to Imaja Collections</h2>
+    <p>Discover premium Islamic clothing crafted for elegance and modesty. Shop now and experience timeless style.</p>
+  </main>
+
+
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "280px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+    document.getElementById("menuToggle").onclick = openMenu;
+  </script>
+      <!-- Add this anywhere inside <body> of index.html where you want the image -->
+<a href="product1.html" style="display: inline-block; text-align: center; text-decoration: none;margin-right: 45px">
+  <img src="images/img1.jpg" alt="Black Thunder T-Shirt" style="width: 250px; border-radius: 180px; transition: 0.3s ease;">
+  <h3 style="color: black; margin-top: 50px;">Black Thunder T-Shirt</h3>
+  </a>
+  <a href="product2.html" style="display: inline-block; text-align: center; text-decoration: none;">
+  <img src="images/img2.jpg" alt="TIF T-shirt" style="width: 250px; border-radius: 180px; transition: 0.3s ease;">
+  <h3 style="color: black; margin-top: 10px;">TIF T-shirt</h3>
+  </a>
+  <footer>
+    © 2025 Imaja Collections. All rights reserved.
+  </footer>
+  
+
+</body>
+</html>
